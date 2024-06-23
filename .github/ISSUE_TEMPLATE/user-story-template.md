@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-As a **user** I can **capability** so that **benefit**
+As a **user,** I can **capability** so that **benefit**
 
 ### Acceptance criteria
 
