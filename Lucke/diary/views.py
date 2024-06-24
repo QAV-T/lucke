@@ -1,7 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from allauth.account.views import SignupView
 from .models import Post
 from .forms import PostForm
+
+class CustomSignupView(SignupView):
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return redirect('account_login')
+
 
 def home(request):
     posts = Post.objects.filter(author=request.user).order_by('-created_at') if request.user.is_authenticated else []
@@ -21,7 +28,12 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('home')
+            return redirect('profile')
     else:
         form = PostForm()
-    return render(request, 'diary/create_post.html', {'form': form})
+    return render(request, 'create_post.html', {'form': form})
+
+
+@login_required
+def profile_view(request):
+    return render(request, 'profile.html')

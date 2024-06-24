@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Lucke Project{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2 class="text-center">Login</h2>
+    <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+</div>
+{% endblock %}
