@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Logout Confirmation - Lucke Project{% endblock %}
+
+{% block content %}
+<div class="logout-confirmation-container">
+    <h2 class="text-center">Are you sure you want to logout?</h2>
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Yes, Logout</button>
+        <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

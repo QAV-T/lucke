@@ -35,5 +35,9 @@ def create_post(request):
 
 
 @login_required
+def logout_confirmation(request):
+    return render(request, 'account/logout_confirmation.html')
+
+@login_required
 def profile_view(request):
     return render(request, 'profile.html')
