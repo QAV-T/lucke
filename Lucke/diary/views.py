@@ -40,4 +40,5 @@ def logout_confirmation(request):
 
 @login_required
 def profile_view(request):
-    return render(request, 'profile.html')
+    posts = Post.objects.filter(author=request.user).order_by('-created_at')
+    return render(request, 'profile.html', {'posts': posts})
