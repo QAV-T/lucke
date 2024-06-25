@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from allauth.account.views import SignupView
 from .models import Post
@@ -42,3 +42,28 @@ def logout_confirmation(request):
 def profile_view(request):
     posts = Post.objects.filter(author=request.user).order_by('-created_at')
     return render(request, 'profile.html', {'posts': posts})
+
+@login_required
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    return render(request, 'post_detail.html', {'post': post})
+
+@login_required
+def post_edit(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', post_id=post.id)  
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'post_edit.html', {'form': form})
+
+@login_required
+def post_delete(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    if request.method == "POST":
+        post.delete()
+        return redirect('profile')
+    return render(request, 'post_delete.html', {'post': post})
