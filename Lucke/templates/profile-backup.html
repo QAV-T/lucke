@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Profile - Lucke Project{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2 class="text-center">Welcome, {{ user.username }}!</h2>
+    <p>This is your profile page.</p>
+</div>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'create_post' %}">Create New Post</a>
+    <ul>
+        {% for post in posts %}
+                <li class="list-group-item">
+                    <a href="{% url 'post_detail' post.id %}"><h4>{{ post.title }}</h4></a>
+                    <p>{{ post.content }}</p>
+                    <small>written on {{ post.created_at|date:"M d, Y" }} at {{ post.created_at |time:"H:i" }}</small>
+                    <div class="mt-2">
+                        <a href="{% url 'post_edit' post.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                        <a href="{% url 'post_delete' post.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p>You are not logged in. Please <a href="{% url 'account_login' %}">log in</a> to see your posts.</p>
+{% endif %}
+{% endblock %}
