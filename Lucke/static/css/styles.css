@@ -1,0 +1,23 @@
+
+.timeline {
+  border-left: 3px solid #ddd;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+.timeline-item {
+  margin-bottom: 20px;
+}
+.timeline-date {
+  font-weight: bold;
+  color: #555;
+}
+
+body {
+  background-color: orange;
+}
+.container {
+  margin-top: 50px;
+}
+.navbar {
+  margin-bottom: 20px;
+}
