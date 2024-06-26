@@ -1,67 +1,20 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-env/
+# Virtual environment
 venv/
-ENV/
-env.bak/
-venv.bak/
-*.egg-info/
-dist/
-build/
+myenv/
+.env/
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# dotenv
-.env
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# macOS
-.DS_Store
-
-# VSCode
-.vscode/
-
-# Django
-*.log
-*.pot
+# Python cache files
 *.pyc
 __pycache__/
+
+# Database files
 db.sqlite3
-media
-staticfiles
-local_settings.py
+
+# Static files
+staticfiles/
+
+# Backup files
 db.json
+
+# Environment variables
+.env
