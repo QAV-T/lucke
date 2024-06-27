@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a!*)kbjvfl=dui9n&w*ziyrz(8p*wgwm+di(u$8g&6y2abf99-'
+SECRET_KEY = os.environ.get('django-insecure-a!*)kbjvfl=dui9n&w*ziyrz(8p*wgwm+di(u$8g&6y2abf99-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -86,13 +88,6 @@ WSGI_APPLICATION = 'Lucke.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -103,7 +98,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 
 # Password validation
