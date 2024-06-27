@@ -1,5 +1,5 @@
 """
-WSGI config for Lucke project.
+WSGI config for lucke project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

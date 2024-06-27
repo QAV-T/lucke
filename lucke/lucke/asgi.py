@@ -1,5 +1,5 @@
 """
-ASGI config for Lucke project.
+ASGI config for lucke project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
