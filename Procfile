@@ -1,1 +1,1 @@
-web: gunicorn lucke.wsgi
+web: gunicorn lucke.wsgi --log-file -
