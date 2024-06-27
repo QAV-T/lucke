@@ -17,7 +17,7 @@
         {% for post in posts %}
             <div class="timeline-item">
                 <div class="timeline-date">{{ post.created_at|date:"F j, Y" }}</div>
-                <h4>{{ post.title }}</h4>
+                <h4>{{ post.title|title }}</h4>
                 <p>{{ post.content|truncatewords:30 }}</p>
                 <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary btn-sm">Read more</a>
                 <a href="{% url 'post_edit' post.id %}" class="btn btn-warning btn-sm">Edit</a>
