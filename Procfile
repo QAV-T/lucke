@@ -1,1 +1,1 @@
-web: gunicorn lucke.wsgi --log-file -
+web: gunicorn --pythonpath lucke lucke.wsgi --log-file -
