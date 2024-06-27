@@ -1,1 +1,1 @@
-web: gunicorn Lucke.wsgi
+web: gunicorn lucke.wsgi
