@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 if os.path.isfile('env.py'):
-    import env
+  import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('django-insecure-a!*)kbjvfl=dui9n&w*ziyrz(8p*wgwm+di(u$8g&6y2abf99-')
-
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net', 
+                 '127.0.0.1', 'lucke.herokuapp.com'] 
 
 
 # Application definition
@@ -88,17 +89,20 @@ WSGI_APPLICATION = 'Lucke.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cough_elm_grasp_626997',
-        'USER': 'uzg7xvjb2fb',
-        'PASSWORD': 'CaCUuFK5U2pM',
-        'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'cough_elm_grasp_626997',
+#         'USER': 'uzg7xvjb2fb',
+#         'PASSWORD': 'CaCUuFK5U2pM',
+#         'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
+#         'PORT': '5432',
+#     }
+# }
 
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
