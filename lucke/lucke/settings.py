@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from urllib.parse import urlparse
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -23,12 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = 'django-insecure-a!*)kbjvfl=dui9n&w*ziyrz(8p*wgwm+di(u$8g&6y2abf99-'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net', 
-                 '127.0.0.1', 'lucke.herokuapp.com'] 
+                 '127.0.0.1', 'lucke.herokuapp.com', 'localhost',] 
 
 
 # Application definition
@@ -90,18 +92,23 @@ WSGI_APPLICATION = 'lucke.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'cough_elm_grasp_626997',
-#         'USER': 'uzg7xvjb2fb',
-#         'PASSWORD': 'CaCUuFK5U2pM',
-#         'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
-#         'PORT': '5432',
-#     }
+#     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 # }
 
+DATABASE_URL = os.getenv('DATABASE_URL',  'postgres://uzg7xvjb2fb:CaCUuFK5U2pM@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/cough_elm_grasp_626997')
+
+# Parse the database URL
+url = urlparse(DATABASE_URL)
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cough_elm_grasp_626997',
+        'USER': 'uzg7xvjb2fb',
+        'PASSWORD': 'CaCUuFK5U2pM',
+        'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
