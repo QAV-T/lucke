@@ -11,7 +11,7 @@ __pycache__/
 db.sqlite3
 
 # Static files
-# staticfiles/
+staticfiles/
 
 # Backup files
 db.json
