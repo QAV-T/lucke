@@ -28,7 +28,7 @@ SECRET_KEY = '^6g*!ra5-u3ai^2wb9c!upsy64_=#3v&k65@+da$j5)dde)b^_'
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net', 
-                 '127.0.0.1', 'lucke.herokuapp.com', 'localhost', '8000-qavt-lucke-dnvrn7mejg8.ws.codeinstitute-ide.net' ] 
+                 '127.0.0.1', 'lucke.herokuapp.com', 'localhost', '8000-qavt-lucke-dnvrn7mejg8.ws.codeinstitute-ide.net', 'lucke-26a4f8d0616f.herokuapp.com'] 
 
 
 # Application definition
