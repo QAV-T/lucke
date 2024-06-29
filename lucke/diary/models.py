@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class login(models.Model):
-    username = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
+    username = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
 
     def __str__(self):
         return self.username
