@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 import dj_database_url
-if os.path.isfile('env.py'):
-  import env
+# if os.path.isfile('env.py'):
+#   import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '^6g*!ra5-u3ai^2wb9c!upsy64_=#3v&k65@+da$j5)dde)b^_')
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net', 
                  '127.0.0.1', 'lucke.herokuapp.com', 'localhost', '8000-qavt-lucke-dnvrn7mejg8.ws.codeinstitute-ide.net', 'lucke-26a4f8d0616f.herokuapp.com'] 
@@ -108,7 +109,7 @@ WSGI_APPLICATION = 'lucke.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', 'postgres://uzg7xvjb2fb:CaCUuFK5U2pM@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/cough_elm_grasp_626997'))
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
 # Password validation
