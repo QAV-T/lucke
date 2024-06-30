@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Edit Post - Lucke Project{% endblock %}
-
+{% block title %}Edit diary - Lucke Project{% endblock %}
+diary
 {% block content %}
 <div class="post-edit-container">
-    <h2>Edit Post</h2>
+    <h2>Edit diary</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Save changes</button>
-        <a href="{% url 'post_detail' form.instance.id %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url 'diary_detail' form.instance.id %}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 {% endblock %}

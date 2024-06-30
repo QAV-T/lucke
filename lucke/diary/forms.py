@@ -1,6 +1,6 @@
 from django import forms
 from allauth.account.forms import SignupForm
-from .models import Post
+from .models import Diary
 
 class CustomSignupForm(SignupForm):
     username = forms.CharField(max_length=30, label='Username')
@@ -14,9 +14,9 @@ class CustomSignupForm(SignupForm):
         user.save()
         return user
     
-class PostForm(forms.ModelForm):
+class DiaryForm(forms.ModelForm):
     class Meta:
-        model = Post
+        model = Diary
         fields = ['title', 'content']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),

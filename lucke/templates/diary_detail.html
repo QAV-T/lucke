@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ diary.title }} - Lucke Project{% endblock %}
+
+{% block content %}
+<div class="post-detail-container">
+    <h2>{{ diary.title|title }}</h2>
+    <p>{{ diary.content }}</p>
+    <small>Written on {{ diary.created_at|date:"M d, Y" }} at {{ diary.created_at|time:"H:i" }}</small>
+    <div class="mt-2">
+        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-secondary btn-sm">Edit</a>
+        <a href="{% url 'diary_delete' diary.id %}" class="btn btn-danger btn-sm">Delete</a>
+    </div>
+</div>
+{% endblock %}

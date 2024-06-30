@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from allauth.account.views import SignupView
-from .models import Post
-from .forms import PostForm
+from .models import Diary   
+from .forms import DiaryForm
 
 class CustomSignupView(SignupView):
     def form_valid(self, form):
@@ -11,8 +11,8 @@ class CustomSignupView(SignupView):
 
 
 def home(request):
-    posts = Post.objects.filter(author=request.user).order_by('-created_at') if request.user.is_authenticated else []
-    return render(request, 'diary/home.html', {'posts': posts})
+    diaries = Diary.objects.filter(author=request.user).order_by('-created_at') if request.user.is_authenticated else []
+    return render(request, 'diary/home.html', {'diaries': diaries})
 
 def signup(request):
     username = request.POST.get('username')
@@ -21,17 +21,17 @@ def signup(request):
     return render(request, 'accounts/signup.html')
 
 @login_required
-def create_post(request):
+def create_diary(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = DiaryForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
+            diary = form.save(commit=False)
+            diary.author = request.user
+            diary.save()
             return redirect('profile')
     else:
-        form = PostForm()
-    return render(request, 'create_post.html', {'form': form})
+        form = DiaryForm()
+    return render(request, 'create_diary.html', {'form': form})
 
 
 @login_required
@@ -40,30 +40,30 @@ def logout_confirmation(request):
 
 @login_required
 def profile_view(request):
-    posts = Post.objects.filter(author=request.user).order_by('-created_at')
-    return render(request, 'profile.html', {'posts': posts})
+    diaries = Diary.objects.filter(author=request.user).order_by('-created_at')
+    return render(request, 'profile.html', {'diaries': diaries})
 
 @login_required
-def post_detail(request, post_id):
-    post = get_object_or_404(Post, id=post_id, author=request.user)
-    return render(request, 'post_detail.html', {'post': post})
+def diary_detail(request, diary_id):
+    diary = get_object_or_404(Diary, id=diary_id, author=request.user)
+    return render(request, 'diary_detail.html', {'diary': diary})
 
 @login_required
-def post_edit(request, post_id):
-    post = get_object_or_404(Post, id=post_id, author=request.user)
+def diary_edit(request, diary_id):
+    diary = get_object_or_404(Diary, id=diary_id, author=request.user)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = DiaryForm(request.POST, instance=diary)
         if form.is_valid():
             form.save()
-            return redirect('post_detail', post_id=post.id)  
+            return redirect('diary_detail', diary_id=diary.id)  
     else:
-        form = PostForm(instance=post)
-    return render(request, 'post_edit.html', {'form': form})
+        form = DiaryForm(instance=diary)
+    return render(request, 'diary_edit.html', {'form': form})
 
 @login_required
-def post_delete(request, post_id):
-    post = get_object_or_404(Post, id=post_id, author=request.user)
+def diary_delete(request, diary_id):
+    diary = get_object_or_404(Diary, id=diary_id, author=request.user)
     if request.method == "POST":
-        post.delete()
+        diary.delete()
         return redirect('profile')
-    return render(request, 'post_delete.html', {'post': post})
+    return render(request, 'diary_delete.html', {'diary': diary})
