@@ -20,6 +20,9 @@ def signup(request):
     
     return render(request, 'accounts/signup.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 @login_required
 def create_diary(request):
     if request.method == 'POST':
