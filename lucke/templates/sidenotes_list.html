@@ -1,0 +1,8 @@
+<div class="sidenotes-list">
+    {% for sidenote in sidenotes %}
+        <div class="sidenote">
+            <p>{{ sidenote.content }}</p>
+            <small>Written on {{ sidenote.created_at|date:"M d, Y" }} at {{ sidenote.created_at|time:"H:i" }}</small>
+        </div>
+    {% endfor %}
+</div>

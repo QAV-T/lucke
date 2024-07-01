@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from allauth.account.views import SignupView
-from .models import Diary   
-from .forms import DiaryForm
+from django.http import JsonResponse
+from .models import Diary, Sidenote  
+from .forms import DiaryForm, SidenoteForm
+from django.template.loader import render_to_string
+
 
 class CustomSignupView(SignupView):
     def form_valid(self, form):
@@ -49,7 +52,25 @@ def profile_view(request):
 @login_required
 def diary_detail(request, diary_id):
     diary = get_object_or_404(Diary, id=diary_id, author=request.user)
-    return render(request, 'diary_detail.html', {'diary': diary})
+    sidenotes = Sidenote.objects.filter(diary=diary).order_by('created_at')
+    
+    if request.method == 'POST':
+        form = SidenoteForm(request.POST)
+        if form.is_valid():
+            sidenote = form.save(commit=False)
+            sidenote.diary = diary
+            sidenote.author = request.user
+            sidenote.save()
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                sidenotes_html = render_to_string('sidenotes_list.html', {'sidenotes': sidenotes})
+                return JsonResponse({'sidenotes_html': sidenotes_html})
+        return render(request, 'diary_detail.html', {'diary': diary})
+    else:
+        form = SidenoteForm()
+    return render(request, 'diary_detail.html', {'diary': diary, 'sidenotes': sidenotes, 'form': form})
+    
+
+
 
 @login_required
 def diary_edit(request, diary_id):

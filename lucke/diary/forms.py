@@ -1,6 +1,6 @@
 from django import forms
 from allauth.account.forms import SignupForm
-from .models import Diary
+from .models import Diary, Sidenote
 
 class CustomSignupForm(SignupForm):
     username = forms.CharField(max_length=30, label='Username')
@@ -20,5 +20,13 @@ class DiaryForm(forms.ModelForm):
         fields = ['title', 'content']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+class SidenoteForm(forms.ModelForm):
+    class Meta:
+        model = Sidenote
+        fields = ['content']
+        widgets = {
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }

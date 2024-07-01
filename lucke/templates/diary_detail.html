@@ -12,4 +12,56 @@
         <a href="{% url 'diary_delete' diary.id %}" class="btn btn-danger btn-sm">Delete</a>
     </div>
 </div>
+
+<hr>
+
+<hr>
+
+<h3>Sidenotes</h3>
+    <div id="sidenotes-container">
+        {% include 'sidenotes_list.html' with sidenotes=sidenotes %}
+    </div>
+
+    <hr>
+
+    <h3>Add a Side Note</h3>
+    <button id="showSidenoteForm" class="btn btn-info btn-sm">Write a Side Note</button>
+    <div id="sidenoteFormContainer" style="display:none;">
+        <form id="sidenoteForm" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add Side Note</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('showSidenoteForm').addEventListener('click', function() {
+        var formContainer = document.getElementById('sidenoteFormContainer');
+        formContainer.style.display = (formContainer.style.display === "none") ? "block" : "none";
+    });
+
+    document.getElementById('sidenoteForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = event.target;
+        var formData = new FormData(form);
+
+        fetch("{% url 'diary_detail' diary.id %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.sidenotes_html) {
+                document.getElementById('sidenotes-container').innerHTML = data.sidenotes_html;
+                form.reset();
+                document.getElementById('sidenoteFormContainer').style.display = 'none';
+            }
+        });
+    });
+</script>
 {% endblock %}

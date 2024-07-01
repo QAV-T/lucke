@@ -1,14 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 
-class login(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
+# class login(models.Model):
+#     username = models.CharField(max_length=20)
+#     password = models.CharField(max_length=20)
 
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
 
 class Diary(models.Model):
     title = models.CharField(max_length=200)
@@ -18,3 +19,12 @@ class Diary(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Sidenote(models.Model):
+    diary = models.ForeignKey(Diary, on_delete=models.CASCADE, related_name='sidenotes')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+            return f'Sidenote by {self.author} on {self.diary}'
