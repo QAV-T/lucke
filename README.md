@@ -1,5 +1,8 @@
 # Lucke Project
+### _"Memory is the foundation of personal identity."_
+_John Locke_
 
+---
 ## Table of Contents
 1. [Purpose of the Project](#1-purpose-of-the-project)
 2. [User Stories](#2-user-stories)
@@ -22,32 +25,60 @@
 The Lucke project is a web application that allows users to sign up, sign in, and write diaries on their personal pages. Inspired by the philosopher John Locke, who emphasized the importance of memories, this project aims to provide a personal space for users to store and reflect on their thoughts and experiences.
 
 ## 2. User Stories
-- As a user, I want to create an account so that I can access my personal diary.
-- As a user, I want to log in to my account so that I can add new entries to my diary.
+### User Registration and Authentication
+- As a user, I want to sign up with my username and password so that I can create an account.
+- As a user, I want to log in with my username and password so that I can access my account.
+- As a user, I want to reset my password in case I forget it.(To be tested)
+
+### Diary Management
+- As a user, I want to write daily diary entries so that I can record my thoughts and experiences.
+- As a user, I want to post my diary entries so that they are visible on my timeline.
 - As a user, I want to view my previous diary entries so that I can reflect on my past experiences.
+- As a user, I want to edit my diary entries so that I can update my thoughts and experiences.
+- As a user, I want to delete my diary entries so that I can remove unwanted entries.
+- As a user, I want to change the date of my diary entries so that I can record past memories accurately. (To be created) 
+- As a user, I want to comment on my own entries so that I can add additional thoughts.(To be created)
 
 ## 3. Features
 - User registration and authentication
 - Personal diary page for each user
-- Ability to add, view, and edit diary entries
+- Diary entry creation, posting, editing, and deletion
+- Date modification for diary entries
 
 ## 4. Future Features
 - Adding a comments section for users to interact with each other's entries
 - Integrating an image generator to include pictures with diary entries
+- Advanced search and filtering options for diary entries
 - Mobile social app version of the platform
 
 ## 5. Typography and Color Scheme
-
+(To be created)
 
 ## 6. Wireframes
-
+(To be created)
 
 ## 7. Technology
-- **Backend**: Django
-- **Frontend**: HTML, CSS, JavaScript
-- **Database**: SQLite (development), PostgreSQL (production)
-- **Authentication**: Django Allauth
-- **Deployment**: Heroku, GitHub
+### Work Environments and Hosting
+- [GitHub](https://github.com/) (Version control)
+- [GitPod](https://gitpod.io/) (IDE)
+- [Heroku](https://heroku.com/) (Site hosting)
+- [Lucid](https://lucid.app/) (ERD diagrams)
+### Python Libraries
+- [Gunicorn](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/gunicorn/) (Python HTTP server for WSGI applications)
+- [pyscopg2](https://pypi.org/project/psycopg2/) (PostgreSQL Database adapter)
+- [decouple](https://pypi.org/project/python-decouple/) (store parameters in in .env files)
+### Django Libraries
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) (User authentication)
+- [Whitenoise](https://whitenoise.evans.io/en/latest/) (used for serving static files)
+### Database
+- [ElephantSQL](https://www.elephantsql.com/) (used for serving static files)
+### Frontend
+- HTML
+- CSS
+- Bootstrap (4.5.2 Library)
+- JavaScript
+- Jquery (Librariy)
+
 
 ## 8. Testing
 
@@ -56,9 +87,16 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 - Python code checked with PEP8 guidelines
 
 ### 8.2 Test Cases (User Story Based with Screenshots)
+- User registration
+  ![User Registration](screenshots/user_registration.png)
+- User login
+  ![User Login](screenshots/user_login.png)
+- Diary entry creation
+  ![Diary Entry Creation](screenshots/diary_entry_creation.png)
 
 
 ### 8.3 Fixed Bugs
+- Timezone detection (To be Fixed)
 
 ### 8.4 Supported Screens and Browsers
 - Fully responsive design tested on various devices and screen sizes
@@ -66,25 +104,55 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 
 ## 9. Deployment
 
-### 9.1 Via Heroku
-- App deployed on Heroku using a Procfile and requirements.txt
+###  Via Heroku
+#### Installing libraries
+- Install **Gunicorn** (server used to run Django on Heroku): ``pip3 install django gunicorn``
+- Install **pyscopg2** (connects to PostgreSQL): ``pip3 install dj_database_url pyscopg2``
+- Install **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): ``pip3 install whitenoise``
 
-### 9.2 Via GitHub
-- Code hosted on GitHub with detailed instructions on setting up the project locally
+#### Creating the Heroku App
+
+- Log into Heroku and go to the Dashboard
+- Click **New** and select **Create new app** from the drop-down
+- Name app appropriately and choose relevant region, then click **Create App**
+
+#### Environment Variables
+
+- For local deployment, you will need to create a `.env` file in the root directory of the project and set the environment variables in this file.
+- For Heroku deployment, you will need to set the environment variables through the Heroku CLI or through the Heroku dashboard under 'Config Vars'.
+- You need to define the following variables:
+  - If using a Postgres database:
+    - `DATABASE_URL` - the URL for your Postgres database.
+    - `NAME` - the name of your database.
+    - `USER` - the username for your database.
+    - `PASSWORD` - the password for your database.
+    - `HOST` - the host for your database.
+    - `PORT` - the port for your database.
+  - Django settings:
+    - `SECRET_KEY` - the secret key for your Django project.
+    - `DEBUG` - set to `True` for development, `False` for production.
+
+#### Connecting Heroku to Database
+
+- In Heroku dashboard, go to **Settings** tab
+- Add new config vars **DATABASE_URL** (value is database URL), **SECRET_KEY** (value is secret key string)
+
+
+#### Allow Heroku as host
+
+- In ``settings.py`` add
+    ````
+    ALLOWED_HOSTS = ['app-name.herokuapp.com', 'localhost']
+    ````
 
 ## 10. Credits
-- **Project Inspiration**: John Locke, philosopher
+- **Project Name Inspiration**: The English philosopher "_John Locke_". Check the [Article](https://plato.stanford.edu/entries/locke-personal-identity/) 
 - **Libraries and Tools**: Django, Heroku, GitHub
-- **Development Team**: "Tariq Safieh 2024" All Copyrights Reserved
+- **AI Tools** [_ChatGPT_](https://openai.com/chatgpt)
+- **Learning Materials** [_Code Institute_](codeinstitute.net/)
+- **Development**: "_Tariq Safieh 2024_" All Copyrights Reserved
 
 ---
-
-### John Locke Quote on Memories
-"Memory is the foundation of personal identity."
-
-And,
-
-"Memory is the storehouse in which the knowledge of a former state and condition of our being is laid up, which, though sometimes it is out of sight, is nevertheless always present and ready to be produced whenever it is called for."
 
 
 
