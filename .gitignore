@@ -2,6 +2,7 @@
 venv/
 myenv/
 
+
 # Python cache files
 *.pyc
 __pycache__/
@@ -18,3 +19,6 @@ db.json
 # Environment variables
 env.py
 .env
+
+# side files
+templates/password/
