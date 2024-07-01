@@ -155,7 +155,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://lucke.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://lucke-26a4f8d0616f.herokuapp.com/']
 
 
 SITE_ID = 1
