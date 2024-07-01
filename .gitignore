@@ -18,5 +18,3 @@ db.json
 # Environment variables
 env.py
 .env
-.gitpod.yml
-README.md
