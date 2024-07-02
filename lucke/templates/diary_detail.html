@@ -1,36 +1,44 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Lucke Project{% endblock %}
 
+
 {% block content %}
-<div class="post-detail-container">
+<div class="post-detail-container jumbotron">
     <h2>{{ diary.title|title }}</h2>
+    <br>
     <p>{{ diary.content }}</p>
-    <small>Written on {{ diary.created_at|date:"M d, Y" }} at {{ diary.created_at|time:"H:i" }}</small>
+    <br>
+    <small class="timeDate">Written on {{ diary.created_at|date:"M d, Y" }} at {{ diary.created_at|time:"H:i" }}</small>
     <div class="mt-2">
-        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-secondary btn-sm">Edit</a>
+        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-dark btn-sm">Edit</a>
         <a href="{% url 'diary_delete' diary.id %}" class="btn btn-danger btn-sm">Delete</a>
     </div>
 </div>
 
 <hr>
-
-<hr>
-
-<h3>Sidenotes</h3>
+<br>
     <div id="sidenotes-container">
+        <button id="showSidenoteForm" class="btn btn-dark btn-sm">Write a Side Note</button>
+        <div id="sidenoteFormContainer" style="display:none;">
+            <form id="sidenoteForm" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-dark btn-sm">Add Side note</button>
+            </form>
+        </div>
+        <br>
         {% include 'sidenotes_list.html' with sidenotes=sidenotes %}
+
     </div>
-
-    <hr>
-
-    <h3>Add a Side Note</h3>
-    <button id="showSidenoteForm" class="btn btn-info btn-sm">Write a Side Note</button>
+    
     <div id="sidenoteFormContainer" style="display:none;">
         <form id="sidenoteForm" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Add Side Note</button>
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-dark btn-sm">Add Side note</button>
         </form>
     </div>
 </div>

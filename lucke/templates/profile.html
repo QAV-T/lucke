@@ -3,24 +3,25 @@
 {% block title %}Profile - Lucke Project{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
+<div class="container mt-4 ">
+    <div class="jumbotron">
     <h2>{{ user.username|title }}'s Profile</h2>
     <p>Email: {{ user.email }}</p>
     <p>Joined: {{ user.date_joined|date:"F j, Y" }}</p>
-
+    <p>Diaries: {{ diaries.count }}</p>
+    </div>
     <hr>
 
     {% if user.is_authenticated %}
-    <a href="{% url 'create_diary' %}">Write a Diary</a>
-    <h3>My Diary Timeline</h3>
-    <div class="timeline">
+    <a href="{% url 'create_diary' %}">Write a New Diary</a>
+    <div class="timeline jumbotron">
         {% for diary in diaries %}
-            <div class="timeline-item">
+            <div class="timeline-item" >
                 <div class="timeline-date">{{ diary.created_at|date:"F j, Y" }}</div>
                 <h4>{{ diary.title|title }}</h4>
                 <p>{{ diary.content|truncatewords:30 }}</p>
-                <a href="{% url 'diary_detail' diary.id %}" class="btn btn-secondary btn-sm">Read more</a>
-                <a href="{% url 'diary_edit' diary.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'diary_detail' diary.id %}" class="btn btn-light btn-sm">Read more</a>
+                <a href="{% url 'diary_edit' diary.id %}" class="btn btn-dark btn-sm">Edit</a>
                 <a href="{% url 'diary_delete' diary.id %}" class="btn btn-danger btn-sm">Delete</a>
                 <hr>
             </div>

@@ -23,14 +23,20 @@ body {
   margin-top: 50px;
 }
 .jumbotron {
-  background-color: #faf0ef;
-  margin-top: 20%;
-  opacity: 90%;
-
+  background-color: #e0e0e0;
+  margin-top: 8%;
+  padding-bottom: 6%;
+  padding-top: 4%;
 }
 
 .navbar {
   margin-bottom: 20px;
+  color: #bd0f0f;
+}
+
+.timeDate {
+color: #e0e0e0;
+background-color: rgb(12, 12, 12);
 }
 
 .btn-success {
@@ -39,16 +45,19 @@ body {
 }
 
 .sidenote {
-  border-left: 3px solid #007bff;
+  border-left: 3px solid #0f0f0f;
   padding-left: 10px;
   margin-bottom: 10px;
-  background-color: #f8f9fa;
+  background-color: #e0e0e0;
+;
   padding: 10px;
   border-radius: 5px;
 }
 
+
 #sidenoteFormContainer {
-  margin-top: 15px;
+  margin-top: 10px;
+  opacity: 90%;
 }
 
 #showSidenoteForm {
