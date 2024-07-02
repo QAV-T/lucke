@@ -10,11 +10,12 @@
     <p>Joined: {{ user.date_joined|date:"F j, Y" }}</p>
     <p>Diaries: {{ diaries.count }}</p>
     </div>
-    <hr>
+    <br>
 
     {% if user.is_authenticated %}
-    <a href="{% url 'create_diary' %}">Write a New Diary</a>
-    <div class="timeline jumbotron">
+    <a href="{% url 'create_diary' %}" class="btn btn-dark btn-block">Write a New Diary</a>
+    <br>
+    <div class="timeline">
         {% for diary in diaries %}
             <div class="timeline-item" >
                 <div class="timeline-date">{{ diary.created_at|date:"F j, Y" }}</div>

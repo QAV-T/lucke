@@ -1,8 +1,13 @@
 
 .timeline {
-  border-left: 3px solid #ddd;
+  padding: 20px;
+  background-color: #e0e0e08f;
+  border-left: 3px solid #e0e0e09f;
   margin-left: 20px;
   padding-left: 20px;
+  margin-right: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
 }
 .timeline-item {
   margin-bottom: 20px;
@@ -10,6 +15,14 @@
 .timeline-date {
   font-weight: bold;
   color: #555;
+}
+
+.post-detail-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #e0e0e08f;
+  border-radius: 5px;
 }
 
 body {
@@ -49,7 +62,6 @@ background-color: rgb(12, 12, 12);
   padding-left: 10px;
   margin-bottom: 10px;
   background-color: #e0e0e0;
-;
   padding: 10px;
   border-radius: 5px;
 }
@@ -62,4 +74,12 @@ background-color: rgb(12, 12, 12);
 
 #showSidenoteForm {
   margin-bottom: 10px;
+}
+
+.about {
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #16161633;
+  color: #e0e0e0;
 }

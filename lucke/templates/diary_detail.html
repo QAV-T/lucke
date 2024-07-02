@@ -6,14 +6,14 @@
 
 
 {% block content %}
-<div class="post-detail-container jumbotron">
+<div class="post-detail-container">
     <h2>{{ diary.title|title }}</h2>
     <br>
     <p>{{ diary.content }}</p>
     <br>
     <small class="timeDate">Written on {{ diary.created_at|date:"M d, Y" }} at {{ diary.created_at|time:"H:i" }}</small>
     <div class="mt-2">
-        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-dark btn-sm">Edit</a>
+        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-dark btn-">Edit</a>
         <a href="{% url 'diary_delete' diary.id %}" class="btn btn-danger btn-sm">Delete</a>
     </div>
 </div>
@@ -21,7 +21,7 @@
 <hr>
 <br>
     <div id="sidenotes-container">
-        <button id="showSidenoteForm" class="btn btn-dark btn-sm">Write a Side Note</button>
+        <button id="showSidenoteForm" class="btn btn-dark btn-sm w-50">Write a Side Note</button>
         <div id="sidenoteFormContainer" style="display:none;">
             <form id="sidenoteForm" method="POST">
                 {% csrf_token %}
