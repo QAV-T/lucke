@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'diary',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -169,6 +171,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 
-ACCOUNT_FORMS = {
-    'signup': 'diary.forms.CustomSignupForm',
-}
+# ACCOUNT_FORMS = {
+#     'signup': 'diary.forms.CustomSignupForm',
+# }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

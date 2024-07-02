@@ -1,16 +1,28 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from allauth.account.views import SignupView
+from allauth.account.views import SignupView, LoginView
 from django.http import JsonResponse
 from .models import Diary, Sidenote  
 from .forms import DiaryForm, SidenoteForm
 from django.template.loader import render_to_string
 
 
+
 class CustomSignupView(SignupView):
     def form_valid(self, form):
         response = super().form_valid(form)
         return redirect('account_login')
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html' 
+    redirect_authenticated_user = True  
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
 
 
 def home(request):
