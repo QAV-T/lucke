@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container mt-4 ">
-    <div class="jumbotron">
+    <div class="user-id">
     <h2>{{ user.username|title }}'s Profile</h2>
     <p>Email: {{ user.email }}</p>
     <p>Joined: {{ user.date_joined|date:"F j, Y" }}</p>
@@ -13,7 +13,7 @@
     <br>
 
     {% if user.is_authenticated %}
-    <a href="{% url 'create_diary' %}" class="btn btn-light btn-block">Write a New Diary</a>
+    <a href="{% url 'create_diary' %}" class="btn btn-dark btn-block">Write a New Diary</a>
     <br>
     <div class="timeline">
         {% for diary in diaries %}

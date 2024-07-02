@@ -25,6 +25,17 @@
   border-radius: 5px;
 }
 
+.user-id {
+  padding: 20px;
+  background-color: #e0e0e08f;
+  border-left: 3px solid #e0e0e09f;
+  margin-left: 20px;
+  padding-left: 20px;
+  margin-right: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+} 
+
 body {
   background: linear-gradient(to bottom, #274e43 60%, #7c2e24 100%);
   background-blend-mode: screen;                    
