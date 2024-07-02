@@ -27,16 +27,30 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 ## 2. User Stories
 ### User Registration and Authentication
 - As a user, I want to sign up with my username and password so that I can create an account.
+![new-user](/Readme/welcome_page.png)
+![new-user](/Readme/new_user.png)
 - As a user, I want to log in with my username and password so that I can access my account.
+![new-user](/Readme/new_user-login.png)
+![new-user](/Readme/new_user-profile-two.png)
+- As a user, I want to read more about the project idea and potential, so that I understand more the concept and the motive.
+![new-user](/Readme/about.png)
 
 
 ### Diary Management
 - As a user, I want to write daily diary entries so that I can record my thoughts and experiences.
+![new-user](/Readme/new_user-first-diary.png)
 - As a user, I want to post my diary entries so that they are visible on my timeline.
+![new-user](/Readme/new_user-profile.png)
 - As a user, I want to view my previous diary entries so that I can reflect on my past experiences.
+![new-user](/Readme/new_user-diary.png)
 - As a user, I want to edit my diary entries so that I can update my thoughts and experiences.
+![new-user](/Readme/new_user-first-edit.png)
+![new-user](/Readme/new_user-after-first-edit.png)
 - As a user, I want to delete my diary entries so that I can remove unwanted entries. 
+![new-user](/Readme/new_user-delete.png)
 - As a user, I want to Side Note on my own entries so that I can add additional thoughts and reflect on diaries.
+![new-user](/Readme/new_user-first-sidenote.png)
+![new-user](/Readme/new_user-after-first-edit.png)
 
 ## 3. Features
 - User registration and authentication
@@ -94,17 +108,25 @@ The database model diagram was designed using [Lucidchart](https://lucid.app/luc
 
 ### 8.2 Test Cases (User Story Based with Screenshots)
 - User registration
-  ![User Registration](screenshots/user_registration.png)
+ ![new-user](/Readme/new_user.png)
+- User registration username error
+![username error](/Readme/user_matching-error.png)
+- User registration password error
+![password error](/Readme/password_matching-error.png)
 - User login
-  ![User Login](screenshots/user_login.png)
+![user login](/Readme/new_user-login.png)
+- Login error
+![user login error](/Readme/new_user-login-error.png)
+- New user profile
+![new user profile](/Readme/new_user-first-page.png)
 - Diary entry creation
-  ![Diary Entry Creation](screenshots/diary_entry_creation.png)
+  ![Diary Entry Creation](/Readme/new_user-profile.png)
 - Edit Diary Entry
-  ![Edit Diary Entry](screenshots/Edit_Diary_Entry.png)
+  ![Edit Diary Entry](/Readme/new_user-first-edit.png)
 - Delete Diary Entry
-  ![Delete Diary Entry](screenshots/Delete_Diary_Entry.png)
+  ![Delete Diary Entry](/Readme/new_user-delete.png)
 - Add a SideNote
-  ![Add a SideNote](screenshots/add_sidenote.png)  
+  ![Add a SideNote](/Readme/new_user-diary.png)  
 
 
 ### 8.3 Fixed Bugs
