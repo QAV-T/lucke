@@ -36,28 +36,32 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 - As a user, I want to view my previous diary entries so that I can reflect on my past experiences.
 - As a user, I want to edit my diary entries so that I can update my thoughts and experiences.
 - As a user, I want to delete my diary entries so that I can remove unwanted entries. 
-- As a user, I want to Side Note on my own entries so that I can add additional thoughts.
+- As a user, I want to Side Note on my own entries so that I can add additional thoughts and reflect on diaries.
 
 ## 3. Features
 - User registration and authentication
 - Personal diary page for each user
 - Diary entry creation, posting, editing, and deletion
 - Date modification for diary entries
+- User abelity to write unlimited sidenotes for each diary.
 
 ## 4. Future Features
-- Adding a comments section for users to interact with each other's entries
 - Integrating an image generator to include pictures with diary entries
 - Advanced search and filtering options for diary entries
 - Mobile social app version of the platform
+- Adding a comments section for users to interact with each other's entries
 
 ## 5. Typography and Color Scheme
-- **Typography:** The project uses Bootstrap's default typography for consistency and readability.
-- **Color Scheme:** A simple and clean color scheme is used, primarily leveraging Bootstrap's default color classes.
+- **Typography:** Using Bootstrap's default typography for consistency and readability. The application leverages Bootstrap's well-designed typography system to ensure that all text elements are clear, legible, and visually appealing. This includes headings, paragraphs, and other text elements that are styled for optimal readability across different devices and screen sizes.
+- **Color Scheme:** The application uses a warm combination of colors to create a warm and cozy feeling of a safe place to write down the diaries. The color palette is carefully chosen to evoke feelings of comfort and security, encouraging users to freely express their thoughts and emotions. This includes soft, warm tones for the background and accents that provide a harmonious and inviting interface.
+- **UI:** The user interface combines warm colors to create a cozy atmosphere, making it feel like a safe place to write down diaries. The design includes simple blocks to navigate and a timeline to give users an overview of their diaries. The navigation blocks ensure that users can easily access different sections of the application, while the timeline provides a visual representation of their diary entries, helping them keep track of their writing journey in a structured and intuitive way.
 
+### 6. Entity Relationship Diagram
+### Database Model
 
-## 6. Wireframes
-(To be created)
+The database model diagram was designed using [Lucidchart](https://lucid.app/lucidchart/94e7f6d5-55c3-4ce2-ba36-828086a6c315/edit?invitationId=inv_29bacae7-7749-4820-912d-b49fb0e8ffc6&page=0_0#).
 
+![ERD](image.png)
 ## 7. Technology
 ### Work Environments and Hosting
 - [GitHub](https://github.com/) (Version control)
