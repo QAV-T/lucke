@@ -13,7 +13,7 @@
     <br>
     <small class="timeDate">Written on {{ diary.created_at|date:"M d, Y" }} at {{ diary.created_at|time:"H:i" }}</small>
     <div class="mt-2">
-        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-dark btn-">Edit</a>
+        <a href="{% url 'diary_edit' diary.id %}" class="btn btn-dark btn-sm">Edit</a>
         <a href="{% url 'diary_delete' diary.id %}" class="btn btn-danger btn-sm">Delete</a>
     </div>
 </div>

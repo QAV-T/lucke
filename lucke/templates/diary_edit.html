@@ -4,12 +4,12 @@
 diary
 {% block content %}
 <div class="post-edit-container">
-    <h2>Edit diary</h2>
+    <h2 class='text-center-light'>Edit diary</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save changes</button>
-        <a href="{% url 'diary_detail' form.instance.id %}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-dark btn-sm">Save changes</button>
+        <a href="{% url 'diary_detail' form.instance.id %}" class="btn btn-light btn-sm">Cancel</a>
     </form>
 </div>
 {% endblock %}
