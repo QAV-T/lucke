@@ -28,16 +28,15 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 ### User Registration and Authentication
 - As a user, I want to sign up with my username and password so that I can create an account.
 - As a user, I want to log in with my username and password so that I can access my account.
-- As a user, I want to reset my password in case I forget it.(To be tested)
+
 
 ### Diary Management
 - As a user, I want to write daily diary entries so that I can record my thoughts and experiences.
 - As a user, I want to post my diary entries so that they are visible on my timeline.
 - As a user, I want to view my previous diary entries so that I can reflect on my past experiences.
 - As a user, I want to edit my diary entries so that I can update my thoughts and experiences.
-- As a user, I want to delete my diary entries so that I can remove unwanted entries.
-- As a user, I want to change the date of my diary entries so that I can record past memories accurately. (To be created) 
-- As a user, I want to comment on my own entries so that I can add additional thoughts.(To be created)
+- As a user, I want to delete my diary entries so that I can remove unwanted entries. 
+- As a user, I want to Side Note on my own entries so that I can add additional thoughts.
 
 ## 3. Features
 - User registration and authentication
@@ -52,7 +51,9 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 - Mobile social app version of the platform
 
 ## 5. Typography and Color Scheme
-(To be created)
+- **Typography:** The project uses Bootstrap's default typography for consistency and readability.
+- **Color Scheme:** A simple and clean color scheme is used, primarily leveraging Bootstrap's default color classes.
+
 
 ## 6. Wireframes
 (To be created)
@@ -93,10 +94,27 @@ The Lucke project is a web application that allows users to sign up, sign in, an
   ![User Login](screenshots/user_login.png)
 - Diary entry creation
   ![Diary Entry Creation](screenshots/diary_entry_creation.png)
+- Edit Diary Entry
+  ![Edit Diary Entry](screenshots/Edit_Diary_Entry.png)
+- Delete Diary Entry
+  ![Delete Diary Entry](screenshots/Delete_Diary_Entry.png)
+- Add a SideNote
+  ![Add a SideNote](screenshots/add_sidenote.png)  
 
 
 ### 8.3 Fixed Bugs
-- Timezone detection (To be Fixed)
+- **Circular Import Issue in `models.py`:**
+  - **Issue:** There was a circular import issue caused by importing the `Diary` model at the beginning of the file which resulted in `ImportError: cannot import name 'Diary' from partially initialized module 'diary.models'`.
+  - **Solution:** The solution was to refactor the imports and ensure that the `Diary` model was not causing a circular dependency, and modifing the import statements to only import necessary components at the right places.
+
+- **NoReverseMatch Error for `request.user`:**
+  - **Issue:** Encountered a `NoReverseMatch` error when trying to access `request.user` in the URL pattern.
+  - **Solution:** The solution was to use the correct URL patterns and ensure that `request.user` is handled properly within the context of the view.
+
+- **AJAX Handling for Sidenote Additions:**
+  - **Issue:** The `is_ajax` method was deprecated in Django 4.0, causing the AJAX request handling to fail.
+  - **Solution:** Updated the AJAX handling to use `request.headers.get('x-requested-with') == 'XMLHttpRequest'` instead of `request.is_ajax()`.
+
 
 ### 8.4 Supported Screens and Browsers
 - Fully responsive design tested on various devices and screen sizes
@@ -149,7 +167,7 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 - **Project Name Inspiration**: The English philosopher "_John Locke_". Check the [Article](https://plato.stanford.edu/entries/locke-personal-identity/) 
 - **Libraries and Tools**: Django, Heroku, GitHub
 - **AI Tools** [_ChatGPT_](https://openai.com/chatgpt)
-- **Learning Materials** [_Code Institute_](codeinstitute.net/)
+- **Project Guidance and Support** [_Code Institute_](codeinstitute.net/)
 - **Development**: "_Tariq Safieh 2024_" All Copyrights Reserved
 
 ---
