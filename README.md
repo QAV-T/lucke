@@ -70,7 +70,8 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 - [decouple](https://pypi.org/project/python-decouple/) (store parameters in in .env files)
 ### Django Libraries
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/) (User authentication)
-- [Whitenoise](https://whitenoise.evans.io/en/latest/) (used for serving static files)
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) (Used to control forms)
+- [Whitenoise](https://whitenoise.evans.io/en/latest/) (Used for serving static files)
 ### Database
 - [ElephantSQL](https://www.elephantsql.com/) (used for serving static files)
 ### Frontend
