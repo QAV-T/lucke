@@ -13,13 +13,29 @@
 }
 
 body {
-  background-color: orange;
+  background: linear-gradient(to bottom, #274e43 60%, #7c2e24 100%);
+  background-blend-mode: screen;                    
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
 .container {
   margin-top: 50px;
 }
+.jumbotron {
+  background-color: #faf0ef;
+  margin-top: 20%;
+  opacity: 90%;
+
+}
+
 .navbar {
   margin-bottom: 20px;
+}
+
+.btn-success {
+  background-color: #274e43;
+  border-color: #274e43;
 }
 
 .sidenote {
