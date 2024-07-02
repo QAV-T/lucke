@@ -6,9 +6,10 @@
 <div class="jumbotron">
     <h1 class="display-4">Welcome to Lucke Project</h1>
     <p class="lead">This is a simple diary application where you can log your daily posts.</p>
+    <p class="lead">You can read more about the project in the  <a class="text-reset link-dark" href="{% url 'about' %}"><b>About.</b></a></p>
     <hr class="my-4">
     <p>Sign up to start logging your posts or log in if you already have an account.</p>
     <a class="btn btn-success" href="{% url 'account_signup' %}" role="button">Sign Up</a>
-    <a class="btn btn-dark " href="{% url 'account_login' %}" role="button">Login</a>
+    <a class="btn btn-dark" href="{% url 'account_login' %}" role="button">Login</a>
 </div>
 {% endblock %}
