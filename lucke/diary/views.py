@@ -2,10 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from allauth.account.views import SignupView, LoginView
 from django.http import JsonResponse
-from .models import Diary, Sidenote  
+from .models import Diary, Sidenote
 from .forms import DiaryForm, SidenoteForm
 from django.template.loader import render_to_string
-
 
 
 class CustomSignupView(SignupView):
@@ -13,9 +12,10 @@ class CustomSignupView(SignupView):
         response = super().form_valid(form)
         return redirect('account_login')
 
+
 class CustomLoginView(LoginView):
-    template_name = 'login.html' 
-    redirect_authenticated_user = True  
+    template_name = 'login.html'
+    redirect_authenticated_user = True
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -24,19 +24,21 @@ class CustomLoginView(LoginView):
         return super().form_invalid(form)
 
 
-
 def home(request):
     diaries = Diary.objects.filter(author=request.user).order_by('-created_at') if request.user.is_authenticated else []
     return render(request, 'diary/home.html', {'diaries': diaries})
 
+
 def signup(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
-    
+
     return render(request, 'accounts/signup.html')
+
 
 def about(request):
     return render(request, 'about.html')
+
 
 @login_required
 def create_diary(request):
@@ -56,16 +58,18 @@ def create_diary(request):
 def logout_confirmation(request):
     return render(request, 'account/logout_confirmation.html')
 
+
 @login_required
 def profile_view(request):
     diaries = Diary.objects.filter(author=request.user).order_by('-created_at')
     return render(request, 'profile.html', {'diaries': diaries})
 
+
 @login_required
 def diary_detail(request, diary_id):
     diary = get_object_or_404(Diary, id=diary_id, author=request.user)
     sidenotes = Sidenote.objects.filter(diary=diary).order_by('created_at')
-    
+
     if request.method == 'POST':
         form = SidenoteForm(request.POST)
         if form.is_valid():
@@ -80,8 +84,6 @@ def diary_detail(request, diary_id):
     else:
         form = SidenoteForm()
     return render(request, 'diary_detail.html', {'diary': diary, 'sidenotes': sidenotes, 'form': form})
-    
-
 
 
 @login_required
@@ -91,10 +93,11 @@ def diary_edit(request, diary_id):
         form = DiaryForm(request.POST, instance=diary)
         if form.is_valid():
             form.save()
-            return redirect('diary_detail', diary_id=diary.id)  
+            return redirect('diary_detail', diary_id=diary.id)
     else:
         form = DiaryForm(instance=diary)
     return render(request, 'diary_edit.html', {'form': form})
+
 
 @login_required
 def diary_delete(request, diary_id):

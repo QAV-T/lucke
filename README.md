@@ -75,7 +75,7 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 
 The database model diagram was designed using [Lucidchart](https://lucid.app/lucidchart/94e7f6d5-55c3-4ce2-ba36-828086a6c315/edit?invitationId=inv_29bacae7-7749-4820-912d-b49fb0e8ffc6&page=0_0#).
 
-![ERD](image.png)
+![ERD](/Readme/ERD,%20Diary%20.jpeg)
 ## 7. Technology
 ### Work Environments and Hosting
 - [GitHub](https://github.com/) (Version control)
@@ -103,8 +103,66 @@ The database model diagram was designed using [Lucidchart](https://lucid.app/luc
 ## 8. Testing
 
 ### 8.1 Code Validation
-- HTML, CSS, and JavaScript code validated using W3C validators
-- Python code checked with PEP8 guidelines
+#### HTML, CSS, code validated using W3C validators
+#### HTML:
+**Home page**
+
+No errors or warnings to show.
+
+**Login page**
+
+No errors or warnings to show.
+
+**Login\logout page**
+
+No errors or warnings to show.
+
+**Sign up page**
+
+No errors or warnings to show.
+
+**Create diary page**
+
+No errors or warnings to show.
+
+**Delete diary page**
+
+No errors or warnings to show.
+
+**Diary edit page**
+
+No errors or warnings to show.
+
+**Profile page**
+
+No errors or warnings to show.
+
+**Side note list page**
+
+No errors or warnings to show.
+
+**Base page**
+
+No errors or warnings to show.
+
+**About page**
+
+No errors or warnings to show.
+
+#### CSS [Jigsaw](https://jigsaw.w3.org/css-validator/)
+
+No error found.
+
+![css](/Readme/css-validation.png)
+
+#### Python [CI Python Linter](https://pep8ci.herokuapp.com/) code checked with PEP8 guidelines
+All Python files been checked **admin.py**, **forms.py**, **models.py**, **urls.py**, **views.py**, **settings.py** and **lucke/urls.py**
+
+- I found errors related to trailling whitespaces, blank lines and newlines at the end of the file. All the errors been fixed accordingly.
+
+![python validation](/Readme/admin-py.png)
+![python validation](/Readme/lucke-views-py.png)
+![python validation](/Readme/models-py.png)
 
 ### 8.2 Test Cases (User Story Based with Screenshots)
 - User registration

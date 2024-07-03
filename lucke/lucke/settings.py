@@ -27,8 +27,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net', 
-                 '127.0.0.1', 'lucke.herokuapp.com', 'localhost', '8000-qavt-lucke-dnvrn7mejg8.ws.codeinstitute-ide.net', 'lucke-26a4f8d0616f.herokuapp.com'] 
+ALLOWED_HOSTS = ['8000-qavt-lucke-6txl7jetqec.ws.codeinstitute-ide.net', '127.0.0.1', 'lucke.herokuapp.com', 'localhost', '8000-qavt-lucke-dnvrn7mejg8.ws.codeinstitute-ide.net', 'lucke-26a4f8d0616f.herokuapp.com'] 
 
 
 # Application definition
@@ -149,7 +148,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
@@ -171,8 +170,5 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 
-# ACCOUNT_FORMS = {
-#     'signup': 'diary.forms.CustomSignupForm',
-# }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
