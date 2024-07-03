@@ -3,28 +3,34 @@
 _John Locke_
 
 ---
+
+![welcomepage](/Readme/toppage.png)
+
+[Link to live site](https://lucke-26a4f8d0616f.herokuapp.com/) 
 ## Table of Contents
 1. [Purpose of the Project](#1-purpose-of-the-project)
 2. [User Stories](#2-user-stories)
 3. [Features](#3-features)
 4. [Future Features](#4-future-features)
 5. [Typography and Color Scheme](#5-typography-and-color-scheme)
-6. [Wireframes](#6-wireframes)
+6. [Database Model](#6-database-model)
 7. [Technology](#7-technology)
 8. [Testing](#8-testing)
     1. [Code Validation](#81-code-validation)
     2. [Test Cases (User Story Based with Screenshots)](#82-test-cases-user-story-based-with-screenshots)
     3. [Fixed Bugs](#83-fixed-bugs)
     4. [Supported Screens and Browsers](#84-supported-screens-and-browsers)
+    5. [Performance and accessibility](#85-performance-accessibility-seo-best-practices)
 9. [Deployment](#9-deployment)
-    1. [Via Heroku](#91-via-heroku)
-    2. [Via GitHub](#92-via-github)
 10. [Credits](#10-credits)
 
 ## 1. Purpose of the Project
 The Lucke project is a web application that allows users to sign up, sign in, and write diaries on their personal pages. Inspired by the philosopher John Locke, who emphasized the importance of memories, this project aims to provide a personal space for users to store and reflect on their thoughts and experiences.
 
 ## 2. User Stories
+### Agile 
+This project was designed and built using the agile approach. Right from the initial planning through to final development. To help visualise the process I created a [GitHub project](https://github.com/users/QAV-T/projects/2) and utilised the provided Kanban board method to split project elements into user stories and manageable tasks.
+
 ### User Registration and Authentication
 - As a user, I want to sign up with my username and password so that I can create an account.
 
@@ -66,7 +72,7 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 - Personal diary page for each user
 - Diary entry creation, posting, editing, and deletion
 - Date modification for diary entries
-- User abelity to write unlimited sidenotes for each diary.
+- User ability to write unlimited sidenotes for each diary.
 
 ## 4. Future Features
 - Integrating an image generator to include pictures with diary entries
@@ -77,11 +83,11 @@ The Lucke project is a web application that allows users to sign up, sign in, an
 ## 5. Typography and Color Scheme
 - **Typography** Using Bootstrap's default typography for consistency and readability. The application leverages Bootstrap's well-designed typography system to ensure that all text elements are clear, legible, and visually appealing. This includes headings, paragraphs, and other text elements that are styled for optimal readability across different devices and screen sizes.
 - **Color Scheme** The application uses a warm combination of colors to create a warm and cozy feeling of a safe place to write down the diaries. The color palette is carefully chosen to evoke feelings of comfort and security, encouraging users to freely express their thoughts and emotions. This includes soft, warm tones for the background and accents that provide a harmonious and inviting interface.
-- **UI** The user interface combines warm colors to create a cozy atmosphere, making it feel like a safe place to write down diaries. The design includes simple blocks to navigate and a timeline to give users an overview of their diaries. The navigation blocks ensure that users can easily access different sections of the application, while the timeline provides a visual representation of their diary entries, helping them keep track of their writing journey in a structured and intuitive way.
-- **Agile** This project was designed and built using the agile approach. Right from the initial planning through to final development. To help visualise the process I created a [GitHub project](https://github.com/users/QAV-T/projects/2) and utilised the provided Kanban board method to split project elements into user stories and manageable tasks.
+- **UI** The user interface combines warm colors to create a cosy atmosphere, making it feel like a safe place to write down diaries. The design includes simple blocks to navigate and a timeline to give users an overview of their diaries. The navigation blocks ensure that users can easily access different sections of the application, while the timeline provides a visual representation of their diary entries, helping them keep track of their writing journey in a structured and intuitive way.
 
-### 6. Entity Relationship Diagram
-### Database Model
+
+## 6. Database Model
+### Entity Relationship Diagram
 
 The database model diagram was designed using [Lucidchart](https://lucid.app/lucidchart/94e7f6d5-55c3-4ce2-ba36-828086a6c315/edit?invitationId=inv_29bacae7-7749-4820-912d-b49fb0e8ffc6&page=0_0#).
 
@@ -107,7 +113,7 @@ The database model diagram was designed using [Lucidchart](https://lucid.app/luc
 - CSS
 - Bootstrap (4.5.2 Library)
 - JavaScript
-- Jquery (Librariy)
+- Jquery (Library)
 
 
 ## 8. Testing
@@ -210,7 +216,7 @@ All Python files been checked **admin.py**, **forms.py**, **models.py**, **urls.
 ### 8.3 Fixed Bugs
 - **Circular Import Issue in `models.py`:**
   - **Issue:** There was a circular import issue caused by importing the `Diary` model at the beginning of the file which resulted in `ImportError: cannot import name 'Diary' from partially initialized module 'diary.models'`.
-  - **Solution:** The solution was to refactor the imports and ensure that the `Diary` model was not causing a circular dependency, and modifing the import statements to only import necessary components at the right places.
+  - **Solution:** The solution was to refactor the imports and ensure that the `Diary` model was not causing a circular dependency, and modifying the import statements to only import necessary components at the right places.
 
 - **NoReverseMatch Error for `request.user`:**
   - **Issue:** Encountered a `NoReverseMatch` error when trying to access `request.user` in the URL pattern.
@@ -223,7 +229,25 @@ All Python files been checked **admin.py**, **forms.py**, **models.py**, **urls.
 
 ### 8.4 Supported Screens and Browsers
 - Fully responsive design tested on various devices and screen sizes
+Tested with [Responsive Viewer](https://responsiveviewer.org)
+![responsive](/Readme/responsive%20(1).png)
+![responsive](/Readme/responsive%20(2).png)
+![responsive](/Readme/responsive%20(3).png)
+![responsive](/Readme/responsive%20(4).png)
+
+
+
 - Compatible with major browsers: Chrome, Firefox, Safari, Edge
+
+### 8.5 Performance, Accessibility, SEO, Best Practices
+
+**Desktop results**
+
+ ![lighthouse test](/Readme/lighthouse%20Desktop.png)
+
+**Mobile results**
+
+ ![lighthouse test](/Readme/lighthouse%20mobile.png)
 
 ## 9. Deployment
 
