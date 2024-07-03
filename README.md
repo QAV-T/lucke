@@ -10,6 +10,9 @@ _John Locke_
 ## Table of Contents
 1. [Purpose of the Project](#1-purpose-of-the-project)
 2. [User Stories](#2-user-stories)
+     1. [Agile](#21-agile)
+     2. [User Registration and Authentication](#22-user-registration-and-authentication)
+     3. [Diary Management](#23-diary-management)
 3. [Features](#3-features)
 4. [Future Features](#4-future-features)
 5. [Typography and Color Scheme](#5-typography-and-color-scheme)
@@ -28,10 +31,10 @@ _John Locke_
 The Lucke project is a web application that allows users to sign up, sign in, and write diaries on their personal pages. Inspired by the philosopher John Locke, who emphasized the importance of memories, this project aims to provide a personal space for users to store and reflect on their thoughts and experiences.
 
 ## 2. User Stories
-### Agile 
+### 2.1 Agile 
 This project was designed and built using the agile approach. Right from the initial planning through to final development. To help visualise the process I created a [GitHub project](https://github.com/users/QAV-T/projects/2) and utilised the provided Kanban board method to split project elements into user stories and manageable tasks.
 
-### User Registration and Authentication
+### 2.2 User Registration and Authentication
 - As a user, I want to sign up with my username and password so that I can create an account.
 
 ![new-user](/Readme/welcome_page.png)
@@ -45,7 +48,7 @@ This project was designed and built using the agile approach. Right from the ini
 ![new-user](/Readme/about.png)
 
 
-### Diary Management
+### 2.3 Diary Management
 - As a user, I want to write daily diary entries so that I can record my thoughts and experiences.
 
 ![new-user](/Readme/new_user-first-diary.png)
